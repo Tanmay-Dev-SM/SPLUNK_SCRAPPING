@@ -8,10 +8,13 @@ import logsRouter from "./routes/logs.js";
 import authRouter from "./routes/auth.js";
 import uploadRouter from "./routes/upload.js";
 import uploadLogsRouter from "./routes/uploadLogs.js";
+import systemStatsRouter from "./routes/systemStats.js";
 import resultAnalysisRouter from "./routes/resultAnalysis.js";
 import { startScrapingTask } from "./controllers/cronController.js";
 import logger from "./logger.js";
 import fs from "fs";
+import cron from "node-cron";
+import { collectSystemStatsTask } from "./controllers/systemStatsController.js";
 
 dotenv.config();
 
@@ -35,6 +38,10 @@ process.on("unhandledRejection", (reason, promise) => {
   process.exit(1);
 });
 
+// Schedule system stats collection every hour
+cron.schedule("0 * * * *", () => {
+  collectSystemStatsTask();
+});
 // Initialize server start counter
 let serverStartCount = 0;
 
@@ -59,10 +66,11 @@ startScrapingTask();
 
 app.use("/auth", authRouter);
 app.use("/cron", cronRouter);
+app.use("/logs", logsRouter);
 app.use("/upload", uploadRouter);
 app.use("/upload/logs", uploadLogsRouter);
+app.use("/system-stats", systemStatsRouter);
 app.use("/result_analysisV2", resultAnalysisRouter);
-app.use("/logs", logsRouter);
 
 const server = app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
