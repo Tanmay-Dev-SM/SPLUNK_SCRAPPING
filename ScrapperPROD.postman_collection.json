@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "6404f8b6-96af-4a10-9e08-c1e544dcda33",
+		"name": "ScrapperPROD",
+		"description": "category: \"Mobile\"\n\ncategory: \"Laptop\"\n\ncategory: \"Tablet\"\n\ncategory: \"VideoGame Console\"\n\ncategory: \"SmartWatch\"\n\ncategory: \"Headphone\"\n\ncategory: \"Desktops\"",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38177245"
+	},
+	"item": [
+		{
+			"name": "CRON START",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url_path}}/cron/start",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"cron",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRON STOP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url_path}}/cron/stop",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"cron",
+						"stop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRON STATUS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzQ5ODFjZDdiODY4YjU4ZjQ1NzNiMGQiLCJ1c2VybmFtZSI6IlByb2RVc2VyIiwiaWF0IjoxNzMyOTAzNDQxLCJleHAiOjE3MzI5MDcwNDF9.oDfyJKCaQFXJmHS3fEWMfD1hF9kZPcadn9eNYZw4Viw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{JWT}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_path}}/cron/status",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"cron",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CRON RUN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url_path}}/cron/run",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"cron",
+						"run"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPLOAD",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_path}}/upload",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPLOAD LOGS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url_path}}/upload/logs",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"upload",
+						"logs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SCRAPPED_DATA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_path}}/result_analysisV2",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"result_analysisV2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SCRAPPED_DATA CATEGORY",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_path}}/result_analysisV2/Mobile",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"result_analysisV2",
+						"Mobile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETTING LOGS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_path}}/logs",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"logs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER REGISTER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"ProdUser\",\n  \"password\": \"1234@1234\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_path}}/auth/register",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER LOGIN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"ProdUser\",\n  \"password\": \"1234@1234\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_path}}/auth/login",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER LOGOUT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzQ5ODFjZDdiODY4YjU4ZjQ1NzNiMGQiLCJ1c2VybmFtZSI6IlByb2RVc2VyIiwiaWF0IjoxNzMyOTAzNDQxLCJleHAiOjE3MzI5MDcwNDF9.oDfyJKCaQFXJmHS3fEWMfD1hF9kZPcadn9eNYZw4Viw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "Bearer {{JWT}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_path}}/auth/logout",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"auth",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzQ5ODFjZDdiODY4YjU4ZjQ1NzNiMGQiLCJ1c2VybmFtZSI6IlByb2RVc2VyIiwiaWF0IjoxNzMyODcyODY1LCJleHAiOjE3MzI4NzY0NjV9.msE9A5elo8cdfXduU4jw_NWjgjTZ-Chm2XfP4ixV8Vs",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET SYSTEM STATS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_path}}/system-stats",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"system-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST SYSTEM STATS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url_path}}/system-stats",
+					"host": [
+						"{{url_path}}"
+					],
+					"path": [
+						"system-stats"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "inherit"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_path",
+			"value": "http://localhost:3000/cron"
+		}
+	]
+}
